@@ -70,7 +70,8 @@
   <div class="day header">Thursday</div>
   <div class="day header">Friday</div>
   <div class="day header">Saturday</div>
-  <div class="day {{day.monthClass}}" ng-repeat="day in range.days" >
-    <span>{{day.day}}</span>
+  <!-- days to be greyed out if part of prior or next month -->
+  <div class="day {{day.monthClass}} {{day.dateClass}}" ng-repeat="day in range.days" >
+    <span>{{day.day}}</span> 
   </div>
 </div>

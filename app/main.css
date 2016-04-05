@@ -42,6 +42,9 @@ h1 {
 }
 
 .day.last-month-or-next {
-  /*background-color: #b3b3b3;*/
   background-image: url("./img/rough_diagonal.png");
+}
+
+.day.highlight-current-date {
+  background-color: #ffff80;
 }

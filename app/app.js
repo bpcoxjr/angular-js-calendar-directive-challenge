@@ -30,6 +30,7 @@ app.directive('calendarPartial', function(){
 				$scope.range = CalendarRange.getMonthlyRange(new Date(year, month));
 				//darken out any days that aren't part of the current month
 				$scope.range.days.forEach(greyOut);
+				$scope.range.days.forEach(highlightCurrentDate);
 			};
 
 			//display the calendar when page loads
@@ -40,6 +41,19 @@ app.directive('calendarPartial', function(){
 			function greyOut(element, index, array){
 				if(element.month < currentMonth || element.month > currentMonth) {
 					element.monthClass = 'last-month-or-next';
+				}
+			}
+			//highlight the current date on the calendar yellow
+			function highlightCurrentDate(element, index, array){
+				//clone element.date & set time to midnight
+				var newDate = new Date(element.date);
+				newDate.setHours(0, 0, 0, 0);
+				//clone date & set time to midnight
+				var midnightDate = new Date(date);
+				midnightDate.setHours(0, 0, 0, 0);
+				//
+				if(newDate.getTime() == midnightDate.getTime()){
+					element.dateClass = 'highlight-current-date';
 				}
 			}
 		}
