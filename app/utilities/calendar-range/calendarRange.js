@@ -20,7 +20,7 @@ var CalendarRange = {
     startDay.setDate(1);
 
     var firstDay = new Date(startDay);
-    if (firstDay.getDay() > 0) { //Not Sunday
+    if (firstDay.getDay() > 0) { //if it's not Sunday
       firstDay.setDate(firstDay.getDate() - (firstDay.getDay()));
     }
 

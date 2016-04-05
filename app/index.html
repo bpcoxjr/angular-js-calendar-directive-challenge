@@ -1,15 +1,25 @@
 <!DOCTYPE html>
 <html ng-app="calendarDemoApp">
-<head>
-<title>Calendar Directive Challenge</title>
-<link rel="stylesheet" type="text/css" href="./main.css" />
-</head>
+	<head>
+	<title>Angular Calendar Directive App</title>
+	<!-- styles -->
+	<link rel="stylesheet" type="text/css" href="./bower_components/bootstrap/dist/css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="./main.css"/>
+	</head>
 <body>
-
-<!-- your code for nav and calendar directive instance here -->
-
-<script type="text/javascript" src="./bower_components/angular/angular.js"></script>
-<script type="text/javascript" src="./utilities/calendar-range/calendarRange.js"></script>
-<script type="text/javascript" src="./app.js"></script>
+	<div class="container">
+		<h1>Angular Calendar Directive App</h1>
+		<!-- my-calendar tag links to myCalendar directive in app.js -->
+		<calendar-partial>
+		<!-- calendar loads here -->
+		</calendar-partial>
+	</div>
+	<!-- scripts -->
+	<script type="text/javascript" src="./bower_components/angular/angular.js"></script>
+	<script type="text/javascript" src="./bower_components/angular-mocks/angular-mocks.js"></script>
+	<script type="text/javascript" src="./bower_components/jquery/dist/jquery.js"></script>
+	<script type="text/javascript" src="./bower_components/bootstrap/dist/js/bootstrap.js"></script>
+	<script type="text/javascript" src="./utilities/calendar-range/calendarRange.js"></script>
+	<script type="text/javascript" src="./app.js"></script>
 </body>
 </html>

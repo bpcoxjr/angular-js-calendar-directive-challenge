@@ -1,1 +1,47 @@
-/* your css code goes here */
+h1 {
+  text-align: center;
+  color: #809fff;
+  font-size: 3em;
+  margin-bottom: 1.5em;
+}
+
+.form-inline {
+  padding-left: 15.75em;
+}
+
+.dropdown {
+  width: 200px;
+  left: 0;
+  right: 0;
+}
+
+.container {
+  padding-top: 25px;
+  padding-bottom: 30px;
+  margin: 0 auto;
+}
+
+.calendar {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.day {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  border: 1px solid #b3c6ff;
+  float:left;
+}
+
+.day.header {
+  max-height: 35px;
+  font-weight: 500;
+  font-size: 1.25em;
+  text-align: center;
+}
+
+.day.last-month-or-next {
+  /*background-color: #b3b3b3;*/
+  background-image: url("./img/rough_diagonal.png");
+}

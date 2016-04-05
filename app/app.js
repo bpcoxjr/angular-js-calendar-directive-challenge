@@ -1,3 +1,47 @@
-angular.module('calendarDemoApp', []);
+//declare angular module 'calendarDemoApp'
+var app = angular.module('calendarDemoApp', []);
 
-// your controller and directive code go here
+//this directive controls & loads calendar-partial into html
+app.directive('calendarPartial', function(){
+	return {
+		restrict: 'E',
+		templateUrl: 'calendar-partial.html',
+		controller: function controller($scope, $element, $attrs){
+
+			//set the values for dropdown menus when app first initializes
+			var date = new (Date);
+			var currentMonth = date.getMonth();
+			var currentYear = date.getFullYear();
+
+			//set the month and year to the current month and year by applying ng-model to the
+			//dropdown menu, capturing user choice & storing in currentMonth/currentYear variables
+			$scope.selectedMonth = currentMonth;
+			$scope.selectedYear = currentYear;
+
+			//when different month/year chosen from drop down menu, show appropriate calendar
+			//by applying ng-change to dropdown menu & setting equal to refreshCalendar function
+			$scope.refreshCal = function(){
+				currentMonth = $scope.selectedMonth;
+				$scope.loadCal($scope.selectedYear, $scope.selectedMonth);
+			};
+
+			//load the calendar using function found in calendarRange.js
+			$scope.loadCal = function(year, month){
+				$scope.range = CalendarRange.getMonthlyRange(new Date(year, month));
+				//darken out any days that aren't part of the current month
+				$scope.range.days.forEach(greyOut);
+			};
+
+			//display the calendar when page loads
+			$scope.loadCal(currentYear, currentMonth);
+
+			//make the days that are part of last month or next month a different color
+			//than the days of the current month
+			function greyOut(element, index, array){
+				if(element.month < currentMonth || element.month > currentMonth) {
+					element.monthClass = 'last-month-or-next';
+				}
+			}
+		}
+	};
+});
